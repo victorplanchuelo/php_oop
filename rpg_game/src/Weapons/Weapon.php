@@ -9,10 +9,14 @@ abstract class Weapon
 {
     protected $damage = 0;
     protected $magical = false;
-    protected $description = ':unit ataca a :oponente';
 
     public function createAttack()
     {
-        return new Attack($this->damage, $this->magical, $this->description);
+        return new Attack($this->damage, $this->magical, $this->getDescription());
+    }
+
+    protected function getDescription()
+    {
+        return str_replace('RPG_Game\Weapons\\','', get_class($this) . 'Attack');
     }
 }

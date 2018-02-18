@@ -27,6 +27,15 @@ require 'src/CursedArmor.php';
 require 'src/EvasionArmor.php';
 */
 
+Translator::set([
+    'BasicBowAttack' => ':unit dispara una flecha a :opponent',
+    'BasicSwordAttack' => ':unit ataca con la espada a :opponent',
+    'CrossBowAttack' => ':unit dispara una flecha a :opponent',
+    'FireBowAttack' => ':unit dispara una flecha de fuego a :opponent',
+]);
+
+
+
 $unit2 = new Unit('Monster', new Weapons\BasicSword);
 $unit2->setArmor(new Armors\SilverArmor);
 
