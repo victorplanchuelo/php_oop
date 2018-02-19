@@ -35,9 +35,10 @@ Translator::set([
 ]);
 
 
-
-$unit2 = new Unit('Monster', new Weapons\BasicSword);
-$unit2->setArmor(new Armors\SilverArmor);
+$unit2 = Unit::createSoldier('Monster')
+                ->setArmor(new Armors\SilverArmor())
+                ->setWeapon(new Weapons\BasicSword())
+                ->setShield();
 
 
 $unit1 = new Unit('Planchu', new Weapons\FireBow);
