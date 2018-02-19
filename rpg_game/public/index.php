@@ -34,6 +34,7 @@ Translator::set([
     'FireBowAttack' => ':unit dispara una flecha de fuego a :opponent',
 ]);
 
+Log::setLogger(new HtmlLogger());
 
 $unit2 = Unit::createSoldier('Monster')
                 ->setArmor(new Armors\SilverArmor())
