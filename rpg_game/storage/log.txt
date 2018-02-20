@@ -1,6 +1,0 @@
-
-(2018-02-19 22:20:30) Planchu dispara una flecha de fuego a Monster
-(2018-02-19 22:20:30) Monster ahora tiene 10 puntos de vida
-(2018-02-19 22:20:30) Planchu dispara una flecha de fuego a Monster
-(2018-02-19 22:20:30) Monster perdió todos sus puntos de vida
-(2018-02-19 22:20:30) Monster muere

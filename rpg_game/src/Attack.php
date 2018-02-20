@@ -15,7 +15,7 @@ class Attack
         $this->damage = $damage;
         $this->magical = $magical;
         $this->description = $description;
-        //$this->type = $type;
+        //$this->type =- $type;
     }
 
     public function getDamage()
@@ -41,7 +41,7 @@ class Attack
 
     public function getDescription(Unit $attacker, Unit $opponent)
     {
-        return Translator::get(
+        return Translation::translate(
             $this->description,
             [
                 'unit' => $attacker->getName(),
