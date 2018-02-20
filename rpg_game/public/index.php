@@ -27,12 +27,12 @@ require 'src/CursedArmor.php';
 require 'src/EvasionArmor.php';
 */
 
-Translator::set([
-    'BasicBowAttack' => ':unit dispara una flecha a :opponent',
-    'BasicSwordAttack' => ':unit ataca con la espada a :opponent',
-    'CrossBowAttack' => ':unit dispara una flecha a :opponent',
-    'FireBowAttack' => ':unit dispara una flecha de fuego a :opponent',
-]);
+
+Translation::setTranslator(new EnglishTranslator());
+Log::setLogger(new HtmlLogger());
+
+
+// EJERCICIO - PREPARAR FACADE PARA TRADUCCION
 
 
 $unit2 = Unit::createSoldier('Monster')

@@ -9,6 +9,8 @@ use RPG_Game\Weapons\Weapon;
 //Se quita la propiedad abstract ya que no tiene ninguna propiedad ni metodo abstracto
 class Unit
 {
+    protected const MAX_DAMAGE = 10;
+
     protected $hp = 40;
     protected $name;
     protected $armor;
@@ -48,6 +50,15 @@ class Unit
         return $this;
     }
 
+    protected function setHp($damage)
+    {
+        if($damage>static::MAX_DAMAGE) {
+            $damage = static::MAX_DAMAGE;
+        }
+
+        $this->hp = $this->hp - $damage;
+    }
+
     public function getName()
     {
         return $this->name;
@@ -60,35 +71,35 @@ class Unit
 
     public function move($direction)
     {
-        show("{$this->name} camina hacia $direction");
+        Log::info("{$this->name} camina hacia $direction");
     }
 
     public function attack(Unit $opponent)
     {
         $attack = $this->weapon->createAttack();
 
-        show($attack->getDescription($this,$opponent));
+        Log::info($attack->getDescription($this,$opponent));
 
         $opponent->takeDamage($attack);
     }
 
     public function takeDamage(Attack $attack)
     {
-        $this->hp = $this->hp - $this->armor->absorbDamage($attack);
+        $this->setHp($this->armor->absorbDamage($attack));
 
         if ($this->hp <= 0) {
-        	show("{$this->name} perdió todos sus puntos de vida");
+            Log::info("{$this->name} perdió todos sus puntos de vida");
             $this->die();
         }
         else
         {
-        	show("{$this->name} ahora tiene {$this->hp} puntos de vida");
+        	Log::info("{$this->name} ahora tiene {$this->hp} puntos de vida");
         }
     }
 
     public function die()
     {
-        show("{$this->name} muere");
+        Log::info("{$this->name} muere");
         exit();
     }
 }
